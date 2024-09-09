@@ -82,7 +82,7 @@ def replay(method: Callable):
     count = redis.get(key).decode("utf-8")
     print("{} was called {} times:".format(key, count))
     input_list = redis.lrange(inputs, 0, -1)
-    output_;ist = redis.lrange(outputs, 0, -1)
+    output_list = redis.lrange(outputs, 0, -1)
     redis_zipp = list(zip(input_list, output_list))
     for a, b in redis_zipp:
         attr, data = a.decode("utf-8"), b.decode("utf-8")
